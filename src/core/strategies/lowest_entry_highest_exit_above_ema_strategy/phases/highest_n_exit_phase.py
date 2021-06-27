@@ -28,8 +28,7 @@ class HighestNExitPhase(Phase):
             highest = LowestHighestCalculator.highest(data["Close"], 7)
             close = data["Close"].iloc[0]
 
-            # if close > highest:
-            if True:
+            if close > highest:
                 self.executedPrice = close
                 return True
             else:

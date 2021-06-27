@@ -39,8 +39,7 @@ class LowestNEntryAboveEmaPhase(Phase):
 
             # print(tabulate(data, headers='keys', tablefmt='psql'))
 
-            # if close < lowest and close > movingAverage:
-            if True:
+            if close < lowest and close > movingAverage:
                 self.executedPrice = close
                 return True
             else:

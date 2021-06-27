@@ -17,9 +17,9 @@ class LowestEntryHighestExitAboveEmaStrategy(Strategy):
 
     def populatePhases(self):
         self.phases.append(LowestNEntryAboveEmaPhase(self.symbolPair, self.interval, 300))
-        self.phases.append(TrailingStopMarketBuyPhase(self.symbolPair, self.interval, 0.001))  # 0.002
+        self.phases.append(TrailingStopMarketBuyPhase(self.symbolPair, self.interval, 0.002))  # 0.002
         self.phases.append(HighestNExitPhase(self.symbolPair, self.interval))
-        self.phases.append(TrailingStopMarketSellPhase(self.symbolPair, self.interval, 0.002))  # 0.004
+        self.phases.append(TrailingStopMarketSellPhase(self.symbolPair, self.interval, 0.004))  # 0.004
 
     def executeFail(self):
         print("Recovering from failure " + self.symbolPair.toString())

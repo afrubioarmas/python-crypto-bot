@@ -7,7 +7,6 @@ from src.core.interval import Interval
 from src.core.phase import Phase
 from src.core.symbol_pair import SymbolPair
 from src.pandas_helper import pandas_helper
-from src.telegram_bot import telegram_bot_helper
 
 
 class BollingerPulledBackToBasisPhase(Phase):
@@ -40,5 +39,5 @@ class BollingerPulledBackToBasisPhase(Phase):
                 await asyncio.sleep(self.interval.time)
 
     async def execute(self):
-        telegram_bot_helper.sendMessage(
+        print.sendMessage(
             "Phase 2 BollingerPulledBackToBasisPhase: " + self.symbolPair.toString() + " @ " + str(self.executedPrice))

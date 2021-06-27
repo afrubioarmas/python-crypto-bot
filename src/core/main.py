@@ -21,9 +21,9 @@ async def main():
     for actual in Symbol:
         if (actual != Symbol.USDT):
             strategies.append(
-                LowestEntryHighestExitAboveEmaStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE1))
+                LowestEntryHighestExitAboveEmaStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE30))
             strategies.append(
-                BollingerBullishPullbackStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE1))
+                BollingerBullishPullbackStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE30))
     # strategies.append(LowestEntryHighestExitAboveEmaStrategy(SymbolPair(Symbol.STRAX, Symbol.USDT), Interval.MINUTE30))
     # strategies.append(LowestEntryHighestExitAboveEmaStrategy(SymbolPair(Symbol.ETH, Symbol.USDT), Interval.MINUTE1))
 

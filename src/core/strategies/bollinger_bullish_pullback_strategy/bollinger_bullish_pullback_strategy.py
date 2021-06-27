@@ -17,9 +17,9 @@ class BollingerBullishPullbackStrategy(Strategy):
 
     def populatePhases(self):
         self.phases.append(BollingerBearishHighMomentumPhase(self.symbolPair, self.interval, 3))
-        self.phases.append(TrailingStopMarketBuyPhase(self.symbolPair, self.interval, 0.002))  # 0.002
+        self.phases.append(TrailingStopMarketBuyPhase(self.symbolPair, self.interval, 0.005))  # 0.002
         self.phases.append(BollingerPulledBackToBasisPhase(self.symbolPair, self.interval))
-        self.phases.append(TrailingStopMarketSellPhase(self.symbolPair, self.interval, 0.003))  # 0.004
+        self.phases.append(TrailingStopMarketSellPhase(self.symbolPair, self.interval, 0.007))  # 0.004
 
     def executeFail(self):
         print("Recovering from failure " + self.symbolPair.toString())

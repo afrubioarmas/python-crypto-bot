@@ -6,7 +6,6 @@ from src.core.interval import Interval
 from src.core.phase import Phase
 from src.core.symbol_pair import SymbolPair
 from src.pandas_helper import pandas_helper
-from src.telegram_bot import telegram_bot_helper
 
 
 class HighestNExitPhase(Phase):
@@ -35,5 +34,5 @@ class HighestNExitPhase(Phase):
                 await asyncio.sleep(self.interval.time)
 
     async def execute(self):
-        telegram_bot_helper.sendMessage(
+        print(
             "Phase 2: " + self.symbolPair.toString() + " @ " + str(self.executedPrice))

@@ -32,10 +32,10 @@ class TrailingStopMarketBuyPhase(Phase):
                 res = await socket.recv()
                 recentClosePrice = float(res['c'])
 
-                print("Trailing buy for: " + self.symbolPair.toString() + " First = " + str(self.firstPrice) +
-                      " TakeProfit = " + str(self.bestPrice * (1 + self.trailing)) +
-                      " Best = " + str(self.bestPrice) +
-                      " Current = " + str(recentClosePrice))
+                # print("Trailing buy for: " + self.symbolPair.toString() + " First = " + str(self.firstPrice) +
+                #       " TakeProfit = " + str(self.bestPrice * (1 + self.trailing)) +
+                #       " Best = " + str(self.bestPrice) +
+                #       " Current = " + str(recentClosePrice))
 
                 if self.firstPrice == 0:
                     self.firstPrice = recentClosePrice

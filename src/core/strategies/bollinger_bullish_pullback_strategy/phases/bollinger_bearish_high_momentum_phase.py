@@ -40,7 +40,7 @@ class BollingerBearishHighMomentumPhase(Phase):
             upper = data["Upper"].iloc[0]
 
             if (((open >= lower) and (close <= lower)) or ((open <= lower) and (close <= lower)) or (
-                    (open <= lower) and (close >= lower))) and (upper - lower) > close * 0.02:
+                    (open <= lower) and (close >= lower))) and (upper - lower) > close * 0.1:
                 self.executedPrice = close
                 return True
             else:

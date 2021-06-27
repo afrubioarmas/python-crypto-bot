@@ -26,7 +26,7 @@ class LowestNEntryAboveEmaPhase(Phase):
             fetchedData = await BinanceClient.client.get_klines(
                 symbol=self.symbolPair.toString(),
                 interval=self.interval.abbreviate,
-                limit=301)
+                limit=500)
 
             data = pandas_helper.binanceListToDataFrame(fetchedData)
 
@@ -46,4 +46,4 @@ class LowestNEntryAboveEmaPhase(Phase):
                 await asyncio.sleep(self.interval.time)
 
     async def execute(self):
-        print("Phase 0: " + self.symbolPair.toString() + " @ " + str(self.executedPrice))
+        print("Phase LowestNEntryAboveEma 0: " + self.symbolPair.toString() + " @ " + str(self.executedPrice))

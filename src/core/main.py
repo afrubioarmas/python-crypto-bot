@@ -6,6 +6,8 @@ from src.core.binance_helpers.binance_client import BinanceClient
 from src.core.binance_helpers.market_info_helper import MarketInfoHelper
 from src.core.interval import Interval
 from src.core.orquestrator import Orquestrator
+from src.core.strategies.bollinger_bullish_pullback_strategy.bollinger_bullish_pullback_strategy import \
+    BollingerBullishPullbackStrategy
 from src.core.strategies.lowest_entry_highest_exit_above_ema_strategy.lowest_entry_highest_exit_above_ema_strategy import \
     LowestEntryHighestExitAboveEmaStrategy
 from src.core.symbol import Symbol
@@ -20,13 +22,14 @@ async def main():
         if (actual != Symbol.USDT):
             strategies.append(
                 LowestEntryHighestExitAboveEmaStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE1))
+            strategies.append(
+                BollingerBullishPullbackStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE1))
     # strategies.append(LowestEntryHighestExitAboveEmaStrategy(SymbolPair(Symbol.STRAX, Symbol.USDT), Interval.MINUTE30))
     # strategies.append(LowestEntryHighestExitAboveEmaStrategy(SymbolPair(Symbol.ETH, Symbol.USDT), Interval.MINUTE1))
 
     orq = Orquestrator(strategies)
     # threading.Thread(target=orq.runAll).start()
     await orq.runAll()
-    print("bye")
 
 
 if __name__ == "__main__":

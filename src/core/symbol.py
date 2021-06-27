@@ -1,0 +1,28 @@
+from enum import Enum
+
+
+class Symbol(Enum):
+    USDT = "USDT"
+    BTC = "BTC"
+    ADA = "ADA"
+    ETH = "ETH"
+    XRP = "XRP"
+    DASH = "DASH"
+    LTC = "LTC"
+    CAKE = "CAKE"
+    BNB = "BNB"
+    DOGE = "DOGE"
+    IOST = "IOST"
+    NEO = "NEO"
+    TFUEL = "TFUEL"
+    THETA = "THETA"
+    HARD = "HARD"
+    STRAX = "STRAX"
+    SUSHI = "SUSHI"
+    ALGO = "ALGO"
+    MATIC = "MATIC"
+    DOT = "DOT"
+    LINK = "LINK"
+    FIL = "FIL"
+    SOL = "SOL"
+    SHIB = "SHIB"

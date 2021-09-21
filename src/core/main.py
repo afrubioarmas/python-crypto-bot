@@ -6,10 +6,7 @@ from src.core.binance_helpers.binance_client import BinanceClient
 from src.core.binance_helpers.market_info_helper import MarketInfoHelper
 from src.core.interval import Interval
 from src.core.orquestrator import Orquestrator
-from src.core.strategies.bollinger_bullish_pullback_strategy.bollinger_bullish_pullback_strategy import \
-    BollingerBullishPullbackStrategy
-from src.core.strategies.lowest_entry_highest_exit_above_ema_strategy.lowest_entry_highest_exit_above_ema_strategy import \
-    LowestEntryHighestExitAboveEmaStrategy
+from src.core.strategies.lower_avg_price_strategy.lower_avg_price_strategy import LowerAvgPriceStrategy
 from src.core.symbol import Symbol
 from src.core.symbol_pair import SymbolPair
 
@@ -18,13 +15,12 @@ async def main():
     await BinanceClient.instanceClient()
     await MarketInfoHelper.getMarketInfo()
     strategies = []
-    for actual in Symbol:
-        if (actual != Symbol.USDT):
-            strategies.append(
-                LowestEntryHighestExitAboveEmaStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE30))
-            strategies.append(
-                BollingerBullishPullbackStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE30))
-    # strategies.append(LowestEntryHighestExitAboveEmaStrategy(SymbolPair(Symbol.STRAX, Symbol.USDT), Interval.MINUTE30))
+    # for actual in Symbol:
+    #     if (actual != Symbol.USDT):
+    #         strategies.append(
+    #             LowestEntryHighestExitAboveEmaStrategy(SymbolPair(actual, Symbol.USDT), Interval.MINUTE30))
+
+    strategies.append(LowerAvgPriceStrategy(SymbolPair(Symbol.BTC, Symbol.USDT), Interval.MINUTE1))
     # strategies.append(LowestEntryHighestExitAboveEmaStrategy(SymbolPair(Symbol.ETH, Symbol.USDT), Interval.MINUTE1))
 
     orq = Orquestrator(strategies)
